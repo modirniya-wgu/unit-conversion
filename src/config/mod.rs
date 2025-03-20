@@ -36,10 +36,8 @@ impl AppConfig {
     pub fn from_env() -> Self {
         Self {
             server: ServerConfig {
-                host: env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_string()),
-                port: env::var("PORT").unwrap_or_else(|_| "8080".to_string())
-                    .parse::<u16>()
-                    .expect("PORT must be a number"),
+                host: "0.0.0.0".to_string(),
+                port: 8080,
             },
             log_level: env::var("LOG_LEVEL").unwrap_or_else(|_| "info".to_string()),
         }
